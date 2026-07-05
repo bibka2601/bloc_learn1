@@ -18,10 +18,15 @@ class CatsScreen extends StatelessWidget {
                 state.image ?? '',
               );
               }
-              return Image.network(
-                'https://cdn2.thecatapi.com/images/2ij.jpg',
-                width: double.infinity,
-                height: 200,
+              if(state is CatsError) {
+                return Image.network('https://dsv16luwmjfsl.cloudfront.net/wp-content/uploads/2022/02/404_not_found.png');
+              }
+              return Center(
+                child: Image.network(
+                  'https://cdn2.thecatapi.com/images/2ij.jpg',
+                  width: double.infinity,
+                  height: 200,
+                ),
               );
             },
           ),
